@@ -260,6 +260,7 @@ header {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 3rem;
+  color: #474747;
 }
 
 .include .include-container .include-items {
@@ -327,6 +328,84 @@ header {
     padding: 0.3rem;
     font-size: 0.8rem;
     text-align: center;
+  }
+}
+
+/* This Book */
+
+.thisBook {
+  width: 80%;
+  margin: auto;
+}
+
+.thisBook .thisBook-container {
+  padding: 80px 0;
+}
+
+.thisBook .thisBook-container h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #474747;
+  text-align: center;
+}
+
+.thisBook .thisBook-container p.text {
+  text-align: center;
+  margin-bottom: 1rem;
+  width: 60%;
+  margin: auto;
+  line-height: 1.5;
+}
+
+.thisBook .thisBook-container .students {
+  width: 60%;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.thisBook .thisBook-container .students .student {
+  display: flex;
+  justify-items: flex-end;
+  margin-bottom: 2rem;
+}
+
+.thisBook .thisBook-container .students .student i {
+  color: #4444f0;
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.thisBook .thisBook-container .students .student div {
+  margin-left: 1rem;
+}
+
+.thisBook .thisBook-container .students .student div h4 {
+  margin-bottom: 1rem;
+}
+
+.thisBook .thisBook-container .students .student div p {
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .thisBook {
+    width: 90%;
+  }
+
+  .thisBook .thisBook-container {
+    padding: 40px 0;
+  }
+
+  .thisBook .thisBook-container h3 {
+    font-size: 1.5rem;
+  }
+
+  .thisBook .thisBook-container p.text {
+    width: 100%;
+  }
+
+  .thisBook .thisBook-container .students {
+    width: 90%;
   }
 }
 
