@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fafafa;
+  scroll-behavior: smooth;
+}
+
+header {
+  width: 80%;
+  margin: auto;
+  padding: 1rem 0;
+}
+
+/* Hero */
+
+.hero {
+  padding: 40px 0;
+  width: 80%;
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero .container .left {
+  width: 50%;
+  margin-left: 0;
+}
+
+.hero .container .left h1 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.hero .container .left p.text {
+  margin-bottom: 1rem;
+  width: 70%;
+  margin-left: 0;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.hero .container .left button.active {
+  background-color: #1e1ee7;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  color: #ddd;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.hero .container .left button.active:hover {
+  background-color: #4444f0;
+}
+
+.hero .container .left button {
+  border: 2px solid #1e1ee7;
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  background: none;
+  color: #1e1ee7;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.hero .container .left button:hover {
+  background-color: #f2f2f2;
+}
+
+.hero .container .left .image {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.hero .container .left .image div {
+  margin-left: 1rem;
+}
+
+.hero .container .left .image div p {
+  font-size: 0.9rem;
+}
+
+.hero .container .left .testimonials .testimonial p.qoute {
+  background-color: #f2f2f2;
+  border-left: 2px solid #1e1ee7;
+  padding: 1rem;
+  font-family: italic;
+}
+
+.hero .container .left img {
+  width: 2rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero .container .right {
+  margin-left: 3rem;
+}
+
+@media (max-width: 900px) {
+  header {
+    width: 90%;
+  }
+
+  header .logo h1 {
+    font-size: 1rem;
+  }
+
+  /* Hero */
+
+  .hero {
+    width: 90%;
+  }
+
+  .hero .container {
+    display: block;
+  }
+
+  .hero .container .left {
+    width: 100%;
+  }
+
+  .hero .container .left h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero .container .left p.text {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+
+  .hero .container .left button.active,
+  .hero .container .left button {
+    padding: 0.5rem 1rem;
+  }
+
+  .hero .container .left .image div p {
+    font-size: 0.8rem;
+  }
+
+  .hero .container .left .testimonials .testimonial p.qoute {
+    padding: 1.5rem;
+  }
+
+  .hero .container .right img {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
