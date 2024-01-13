@@ -154,8 +154,251 @@ header {
     padding: 1.5rem;
   }
 
+  .hero .container .right {
+    margin-left: 0;
+  }
+
   .hero .container .right img {
     width: 100%;
     margin-top: 2rem;
+  }
+}
+
+/* Gain */
+
+.gain {
+  width: 80%;
+  margin: auto;
+}
+
+.gain .gain-container {
+  padding: 80px 0;
+}
+
+.gain .gain-container h2,
+.gain .gain-container p {
+  text-align: center;
+  color: #474747;
+}
+
+.gain .gain-container h2 {
+  margin-bottom: 1rem;
+}
+
+.gain .gain-container p {
+  width: 50%;
+  margin-bottom: 3rem;
+}
+
+.gain .gain-container .service-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.gain .gain-container .service-container i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #4444f0;
+}
+
+.service {
+  width: 20rem;
+  height: 15rem;
+}
+
+.service h4 {
+  margin-bottom: 1rem;
+  color: #222;
+  line-height: 1.5;
+}
+
+.service span {
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .gain {
+    width: 90%;
+  }
+
+  .gain .gain-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .gain .gain-container p {
+    width: 100%;
+  }
+
+  .gain .gain-container .service-container {
+    display: block;
+  }
+
+  .gain .gain-container .service-container i {
+    font-size: 1.5rem;
+  }
+
+  .service {
+    margin-bottom: 3rem;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Include */
+
+.include {
+  width: 80%;
+  margin: auto;
+}
+
+.include .include-container {
+  padding: 80px 0;
+}
+
+.include .include-container h3 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.include .include-container .include-items {
+  display: flex;
+}
+
+.include .include-container .include-items .item button {
+  background-color: #4444f0;
+  border: 1px;
+  padding: 1rem 3rem;
+  width: 80%;
+  color: #ddd;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.include .include-container .include-items .item button:hover {
+  background-color: #1e1ee7;
+}
+
+.include .include-container .include-items .item div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.include .include-container .include-items .item div p {
+  margin-left: 1rem;
+}
+
+.include .include-container .include-items .item div i {
+  background-color: #4444f0;
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: #fafafa;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (max-width: 900px) {
+  .include {
+    width: 90%;
+  }
+
+  .include .include-container .include-items {
+    display: block;
+  }
+
+  .include .include-container .include-items .item {
+    margin-bottom: 2rem;
+  }
+
+  .include .include-container .include-items .item img {
+    width: 100%;
+  }
+
+  .include .include-container .include-items .item div i {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
+
+/* Author */
+
+.author {
+  background-color: #4444f0;
+  color: #fafafa;
+}
+
+.author .author-container {
+  padding: 80px 0;
+  width: 80%;
+  margin: auto;
+}
+
+.author .author-container img {
+  width: 7rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.author .author-container h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.author .author-container p {
+  width: 80%;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.author .author-container .follow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.author .author-container .follow h4 {
+  margin-bottom: 1rem;
+}
+
+.author .author-container .follow .icons i {
+  margin-right: 1rem;
+  background-color: #ddd;
+  padding: 0.5rem;
+  color: #474747;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .author .author-container {
+    width: 90%;
+  }
+
+  .author .author-container img {
+    width: 5rem;
+  }
+
+  .author .author-container h3 {
+    font-size: 1.5rem;
+  }
+
+  .author .author-container p {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+
+  .author .author-container .follow h4 {
+    font-size: 1rem;
   }
 }
