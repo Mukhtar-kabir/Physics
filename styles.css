@@ -307,6 +307,10 @@ header {
     width: 90%;
   }
 
+  .include .include-container {
+    padding: 40px 0;
+  }
+
   .include .include-container .include-items {
     display: block;
   }
