@@ -2,7 +2,7 @@
 
 * {
   padding: 0;
-  margin: auto;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -13,16 +13,44 @@ body {
 }
 
 header {
-  width: 80%;
+  z-index: 999;
+  width: 100%;
+  padding: 1rem;
+}
+
+header.sticky {
+  position: fixed;
+  background-color: #f2f2f2;
+  color: #000;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  width: 81%;
   margin: auto;
-  padding: 1rem 0;
+  justify-content: space-between;
+}
+
+header .container button {
+  background-color: #4444f0;
+  border: none;
+  color: #fafafa;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+header .container button:hover {
+  background-color: #1e1ee7;
 }
 
 /* Hero */
 
 .hero {
-  padding: 40px 0;
+  padding: 80px 0;
   width: 80%;
+  margin: auto;
 }
 
 .hero .container {
@@ -33,7 +61,6 @@ header {
 
 .hero .container .left {
   width: 50%;
-  margin-left: 0;
 }
 
 .hero .container .left h1 {
@@ -44,14 +71,13 @@ header {
 .hero .container .left p.text {
   margin-bottom: 1rem;
   width: 70%;
-  margin-left: 0;
   line-height: 1.8;
   font-weight: 500;
 }
 
 .hero .container .left button.active {
   background-color: #1e1ee7;
-  border: none;
+  border: 2px solid #1e1ee7;
   padding: 1rem 2rem;
   border-radius: 3rem;
   color: #ddd;
@@ -101,8 +127,6 @@ header {
 
 .hero .container .left img {
   width: 2rem;
-  margin-left: 0;
-  margin-right: 0;
 }
 
 .hero .container .right {
@@ -111,17 +135,22 @@ header {
 
 @media (max-width: 900px) {
   header {
-    width: 90%;
+    width: 100%;
   }
 
-  header .logo h1 {
+  header h1 {
     font-size: 1rem;
+  }
+
+  header .container {
+    width: 96%;
   }
 
   /* Hero */
 
   .hero {
     width: 90%;
+    padding: 60px 0;
   }
 
   .hero .container {
@@ -188,12 +217,16 @@ header {
 .gain .gain-container p {
   width: 50%;
   margin-bottom: 3rem;
+  margin: auto;
 }
 
 .gain .gain-container .service-container {
   display: flex;
   align-items: center;
   text-align: center;
+  margin-top: 3rem;
+
+  gap: 2rem;
 }
 
 .gain .gain-container .service-container i {
@@ -203,7 +236,7 @@ header {
 }
 
 .service {
-  width: 20rem;
+  width: 100%;
   height: 15rem;
 }
 
@@ -265,6 +298,7 @@ header {
 
 .include .include-container .include-items {
   display: flex;
+  justify-content: space-between;
 }
 
 .include .include-container .include-items .item button {
@@ -425,6 +459,7 @@ header {
 .author .author-container img {
   width: 7rem;
   border-radius: 50%;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
