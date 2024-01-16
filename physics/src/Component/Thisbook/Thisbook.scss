@@ -1,0 +1,75 @@
+.thisBook {
+  width: 80%;
+  margin: auto;
+
+  .thisBook-container {
+    padding: 80px 0;
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #474747;
+      text-align: center;
+    }
+
+    p.text {
+      text-align: center;
+      margin-bottom: 1rem;
+      width: 60%;
+      margin: auto;
+      line-height: 1.5;
+    }
+  }
+
+  .students {
+    width: 60%;
+    margin: auto;
+    margin-top: 4rem;
+
+    .student {
+      display: flex;
+      justify-items: flex-end;
+      margin-bottom: 2rem;
+
+      div {
+        margin-left: 1rem;
+      }
+
+      h4 {
+        margin-bottom: 1rem;
+      }
+
+      p {
+        line-height: 1.5;
+      }
+
+      .icon {
+        color: #4444f0;
+        font-size: 2rem;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .thisBook {
+    width: 90%;
+
+    .thisBook-container {
+      padding: 40px 0;
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      p.text {
+        width: 100%;
+      }
+
+      .students {
+        width: 90%;
+      }
+    }
+  }
+}

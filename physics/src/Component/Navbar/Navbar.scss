@@ -1,0 +1,102 @@
+header {
+  z-index: 999;
+  width: 100%;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+
+  &.scrolling {
+    background-color: #f2f2f2;
+  }
+
+  .link {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    width: 81%;
+    margin: auto;
+    justify-content: space-between;
+
+    button {
+      background-color: #4444f0;
+      border: none;
+      color: #fafafa;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #1e1ee7;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  header {
+    width: 100%;
+
+    .container {
+      width: 100%;
+
+      h1 {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .hero {
+    width: 90%;
+
+    .container {
+      display: block;
+
+      .left {
+        width: 100%;
+
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        p.text {
+          width: 100%;
+          font-size: 0.8rem;
+        }
+
+        button.active,
+        button {
+          padding: 0.5rem 1rem;
+        }
+
+        .image div p {
+          font-size: 0.8rem;
+        }
+
+        .testimonials {
+          .testimonial {
+            p.qoute {
+              padding: 1.5rem;
+            }
+          }
+        }
+      }
+
+      .right {
+        margin-left: 0;
+
+        img {
+          width: 100%;
+          margin-bottom: 3rem;
+        }
+      }
+    }
+  }
+}
