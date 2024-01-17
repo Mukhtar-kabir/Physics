@@ -192,8 +192,8 @@ const Book = () => {
                   onChange={handleInputChange}
                 ></textarea>
 
-                <div className="google">
-                  <div onClick={handleGoogleLogin}>
+                <div className="google" onClick={handleGoogleLogin}>
+                  <div>
                     <img src="/googleIcon.png" alt="" />
                     <span>Sign in with Google</span>
                   </div>
