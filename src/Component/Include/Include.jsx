@@ -45,7 +45,7 @@ const Include = () => {
               <CheckIcon className="icon" />
               <p>Biographies and Historical Context</p>
             </div>
-            <Link to="/book">
+            <Link to="/book" className="link">
               <button>I want this book</button>
             </Link>
           </div>
