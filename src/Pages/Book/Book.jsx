@@ -64,7 +64,6 @@ const Book = () => {
     customizations: {
       title: "IGATA",
       description: "Payment for Physics",
-      // logo: "https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg",
       logo: "/book.png",
     },
   };
