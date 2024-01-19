@@ -3,7 +3,6 @@ import "../Book/Book.scss";
 import { FlutterWaveButton, closePaymentModal } from "flutterwave-react-v3";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import {
@@ -18,9 +17,10 @@ const Book = () => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [payNow, setPayNow] = useState(false);
-  const [payToIGATA, setShowToIGATA] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const totalAmt = 2000;
+
   const userInfo = useSelector((state) => state.physics.userInfo);
   const [formData, setFormData] = useState({
     name: "",
@@ -43,63 +43,16 @@ const Book = () => {
         console.log("User information:", user);
 
         setPayNow(false);
-
-        // setTimeout(() => {
-        //   navigate("/book");
-        // }, 1500);
       })
       .catch((error) => {
         console.log(error);
       });
-  };
-
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        toast.success("Log Out Successfully!");
-        dispatch(removeUser());
-        // dispatch(resetCart());
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    console.log("Log out");
-  };
-
-  const handleCheckout = () => {
-    setPayNow(true);
-    // if (userInfo) {
-    //   setPayNow(true);
-    // } else {
-    //   // toast.error("Please sign in to checkout!");
-    //   console.log("Please sigin to checkout!");
-    // }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleCloseCheckoutModal = () => {
-    // Close the checkout modal
-    setPayNow(false);
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    // Perform form submission logic, e.g., make an API call, process the data
-    console.log("Form data submitted:", formData);
-    handleCloseCheckoutModal();
   };
 
   const config = {
-    public_key: "FLWPUBK_TEST-3b34569f576cd8ed398883ca2e196bf9-X",
+    public_key: "FLWPUBK_TEST-214a5708be8939d9a86cac2171d1205f-X",
     tx_ref: Date.now(),
-    amount: "NGN 2000",
+    amount: totalAmt,
     currency: "NGN",
     payment_options: "card,mobilemoney,ussd",
     customer: {
@@ -118,12 +71,84 @@ const Book = () => {
 
   const fwConfig = {
     ...config,
-    text: "Pay to IGATA",
+    text: "Place Order",
     callback: (response) => {
       console.log(response);
       closePaymentModal(); // this will close the modal programmatically
     },
     onClose: () => {},
+  };
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success("Log Out Successfully!");
+        dispatch(removeUser());
+        setFormSubmitted(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log("Log out");
+  };
+
+  const handleCheckout = () => {
+    setPayNow(true);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleCloseCheckoutModal = () => {
+    // Close the checkout modal
+    setPayNow(false);
+  };
+
+  const isFormValid = () => {
+    // Check if all fields in the formData are not empty
+    return Object.values(formData).every((value) => value.trim() !== "");
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    config.customer = {
+      ...config.customer,
+      ...formData, // Merge form data with existing customer info
+    };
+
+    const hiddenFields = Object.entries(formData).map(([key, value]) => (
+      <input key={key} type="hidden" name={key} value={value} />
+    ));
+
+    if (isFormValid()) {
+      console.log("Form data submitted:", formData);
+      // Clear the form fields after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        address: "",
+      });
+      handleCloseCheckoutModal();
+      setFormSubmitted(true);
+    } else {
+      console.log("Please fill in all the required fields");
+    }
+
+    return (
+      <div>
+        {/* ... other form elements */}
+
+        <FlutterWaveButton {...fwConfig} className="pay">
+          {hiddenFields}
+        </FlutterWaveButton>
+      </div>
+    );
   };
 
   return (
@@ -132,35 +157,32 @@ const Book = () => {
         <img src="/book.png" alt="" />
 
         <div className="price">
-          <h3 className="subTotal">Subtotal: 15$</h3>
+          <h3 className="subTotal">Subtotal: NGN 2000</h3>
           <p>
             Ready to unlock the mysteries of the universe? Click `Checkout` to
             effortlessly complete your order. We`re thrilled to send this
             fascinating physics journey straight to your door! 🚀📖 Let the
             exploration begin! 🛍️⚛️
           </p>
-
           <div className="total">
             <h2>Total</h2>
-            <h1>$15</h1>
+            <h1>NGN 2000</h1>
           </div>
           {/* <FlutterWaveButton {...fwConfig} className="pay" /> */}
-          {userInfo ? (
+          {/* {userInfo ? (
             <div className="payment">
               <FlutterWaveButton {...fwConfig} className="pay" />
-              <button onClick={handleSignOut}>Cancel & Sign Out</button>
+              <button onClick={handleSignOut}>Sign Out</button>
             </div>
           ) : (
             <button onClick={handleCheckout}>Checkout</button>
-          )}
-
+          )} */}
           {payNow && (
             <div
               className="overlay active"
               onClick={handleCloseCheckoutModal}
             ></div>
           )}
-
           {payNow && (
             <div className="checkout-modal">
               <form onSubmit={handleFormSubmit}>
@@ -173,6 +195,7 @@ const Book = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
+                  required
                 />
 
                 <label htmlFor="email">Email:</label>
@@ -182,6 +205,7 @@ const Book = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
+                  required
                 />
 
                 <label htmlFor="address">Address:</label>
@@ -190,6 +214,7 @@ const Book = () => {
                   name="address"
                   value={formData.address}
                   onChange={handleInputChange}
+                  required
                 ></textarea>
 
                 <div className="google" onClick={handleGoogleLogin}>
@@ -207,6 +232,17 @@ const Book = () => {
               </form>
             </div>
           )}
+          {/* Conditionally render payment options based on form submission */}
+          {formSubmitted ? (
+            <div className="payment">
+              <FlutterWaveButton {...fwConfig} className="pay" />
+              <button onClick={handleSignOut}>Sign Out</button>
+            </div>
+          ) : (
+            <button onClick={handleCheckout}>Checkout</button>
+          )}
+
+          {/* {!formSubmitted && <button onClick={handleCheckout}>Checkout</button>} */}
         </div>
       </div>
 
