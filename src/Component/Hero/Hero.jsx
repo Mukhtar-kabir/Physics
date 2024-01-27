@@ -15,7 +15,7 @@ const Hero = () => {
           </p>
           <div className="buttons">
             <Link to="/Book">
-              <button className="active">Buy for $15</button>
+              <button className="active">Buy for NGN 2000</button>
             </Link>
             <button>Learn more</button>
           </div>

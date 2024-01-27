@@ -25,10 +25,10 @@ const Navbar = () => {
     <header className={`myHeader ${scrolling ? "scrolling" : ""}`}>
       <div className="container">
         <Link to="/" className="link">
-          <h1>Unveiling</h1>
+          <img src="/logo.png" alt="LGOG" />
         </Link>
         <Link to="/book">
-          <button>Get your Copy Taday</button>
+          <button>Get your Copy Today</button>
         </Link>
       </div>
     </header>

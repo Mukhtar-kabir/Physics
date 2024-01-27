@@ -40,8 +40,6 @@ const Book = () => {
             email: user.email,
           })
         );
-        console.log("User information:", user);
-
         setPayNow(false);
       })
       .catch((error) => {
@@ -81,14 +79,12 @@ const Book = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        toast.success("Log Out Successfully!");
         dispatch(removeUser());
         setFormSubmitted(false);
       })
       .catch((error) => {
         console.log(error);
       });
-    console.log("Log out");
   };
 
   const handleCheckout = () => {
@@ -126,7 +122,7 @@ const Book = () => {
     ));
 
     if (isFormValid()) {
-      console.log("Form data submitted:", formData);
+      // console.log("Form data submitted:", formData);
       // Clear the form fields after successful submission
       setFormData({
         name: "",
@@ -217,10 +213,10 @@ const Book = () => {
                 ></textarea>
 
                 <div className="google" onClick={handleGoogleLogin}>
-                  <div>
+                  {/* <div>
                     <img src="/googleIcon.png" alt="" />
                     <span>Sign in with Google</span>
-                  </div>
+                  </div> */}
                   {/* <button onClick={handleSignOut}>Sign Out</button> */}
                 </div>
 
@@ -235,7 +231,7 @@ const Book = () => {
           {formSubmitted ? (
             <div className="payment">
               <FlutterWaveButton {...fwConfig} className="pay" />
-              <button onClick={handleSignOut}>Sign Out</button>
+              <button onClick={handleSignOut}>Cancel</button>
             </div>
           ) : (
             <button onClick={handleCheckout}>Checkout</button>

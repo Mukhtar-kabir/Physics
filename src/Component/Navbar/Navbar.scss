@@ -1,7 +1,7 @@
 header {
   z-index: 999;
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -16,6 +16,10 @@ header {
   .link {
     color: #000;
     text-decoration: none;
+
+    img {
+      width: 5rem;
+    }
   }
 
   .container {
@@ -43,6 +47,12 @@ header {
 @media (max-width: 900px) {
   header {
     width: 100%;
+
+    .link {
+      img {
+        width: 3rem;
+      }
+    }
 
     .container {
       width: 100%;
