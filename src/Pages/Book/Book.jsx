@@ -71,7 +71,7 @@ const Book = () => {
     text: "Place Order",
     callback: (response) => {
       console.log(response);
-      closePaymentModal(); // this will close the modal programmatically
+      closePaymentModal();
     },
     onClose: () => {},
   };
@@ -100,7 +100,6 @@ const Book = () => {
   };
 
   const handleCloseCheckoutModal = () => {
-    // Close the checkout modal
     setPayNow(false);
   };
 
@@ -123,7 +122,7 @@ const Book = () => {
 
     if (isFormValid()) {
       // console.log("Form data submitted:", formData);
-      // Clear the form fields after successful submission
+
       setFormData({
         name: "",
         email: "",
